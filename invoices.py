@@ -3,38 +3,41 @@ from trytond.pool import Pool
 from trytond.pyson import Eval
 import datetime
 
+
 class RentalInvoices(ModelSQL, ModelView):
-    '''Rental Invoices'''
+    """Rental Invoices"""
     __name__ = 'rental.invoices.rental'
 
     year = fields.Date('Year', required=True,
-        context={'date_format': '%Y'})
+                       context={'date_format': '%Y'})
     month = fields.Many2One('ir.calendar.month', "Month", required=True)
-    rental_month = fields.Numeric('Rental per month', digits=(16, Eval('currency_digits', 2)),
-            depends=['currency_digits'])
+    rental_month = fields.Numeric('Rental per month',
+                                  digits=(16, Eval('currency_digits', 2)),
+                                  depends=['currency_digits'])
     total_rental_month = fields.Function(fields.Numeric('Total rental per month', readonly=True,
-            digits=(16, Eval('currency_digits', 2)), depends=['currency_digits']),
-            'get_total_rental_month')
+                                                        digits=(16, Eval('currency_digits', 2)),
+                                                        depends=['currency_digits']),
+                                         'get_total_rental_month')
     currency = fields.Many2One('currency.currency',
-        'Currency', readonly=True)
+                               'Currency', readonly=True)
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
-        'on_change_with_currency_digits')
+                                      'on_change_with_currency_digits')
     dividor = fields.Integer('Dividor')
     electricity_invoice = fields.Many2One('rental.invoices.electricity',
-        'Electricity invoice', required=True)
+                                          'Electricity invoice', required=True)
     invoice_internet_total = fields.Numeric('Invoice internet',
-        digits=(16, Eval('currency_digits', 2)), depends=['currency_digits'])
+                                            digits=(16, Eval('currency_digits', 2)), depends=['currency_digits'])
     result_invoice_internet = fields.Function(
-            fields.Numeric('Result invoice internet', readonly=True, 
-            digits=(16, Eval('currency_digits', 2)), depends=['currency_digits']), 
-            'get_result_invoice_internet')
+        fields.Numeric('Result invoice internet', readonly=True,
+                       digits=(16, Eval('currency_digits', 2)), depends=['currency_digits']),
+        'get_result_invoice_internet')
     comment = fields.Text('Comment')
     renters = fields.One2Many('rental.invoices.renter',
-        'rental', 'Renters')
+                              'rental', 'Renters')
 
     @classmethod
     def default_year(cls):
-       return str(datetime.date.today().year)
+        return str(datetime.date.today().year)
 
     @classmethod
     def default_currency(cls):
@@ -45,8 +48,8 @@ class RentalInvoices(ModelSQL, ModelView):
 
     def get_total_rental_month(self, name=None):
         if self.renters:
-            total_rental = sum(r.total_pay_renter for r in self.renters 
-                if r.total_pay_renter)
+            total_rental = sum(r.total_pay_renter for r in self.renters
+                               if r.total_pay_renter)
             return self.currency.round(total_rental) if self.currency else total_rental
         return 0
 
@@ -64,24 +67,24 @@ class RentalInvoices(ModelSQL, ModelView):
 
 
 class RentalInvoicesElectricity(ModelSQL, ModelView):
-    '''Rental Invoices Electricity'''
+    """Rental Invoices Electricity"""
     __name__ = 'rental.invoices.electricity'
     _rec_name = 'code'
 
     code = fields.Char('Invoice code', required=True)
     year = fields.Date('Year', required=True,
-        context={'date_format': '%Y'})
+                       context={'date_format': '%Y'})
     month = fields.Many2One('ir.calendar.month', "Month", required=True)
     invoice_total = fields.Numeric('Invoice total',
-            digits=(16, Eval('currency_digits', 2)),
-            depends=['currency_digits'])
+                                   digits=(16, Eval('currency_digits', 2)),
+                                   depends=['currency_digits'])
     currency = fields.Many2One('currency.currency', 'Currency', readonly=True)
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
-        'on_change_with_currency_digits')
+                                      'on_change_with_currency_digits')
     dividor = fields.Integer('Dividor', required=True)
     result_dividor = fields.Function(
-            fields.Numeric('Dividor result', digits=(16, Eval('currency_digits', 2)),
-            depends=['currency_digits']), 'get_result_dividor')
+        fields.Numeric('Dividor result', digits=(16, Eval('currency_digits', 2)),
+                       depends=['currency_digits']), 'get_result_dividor')
     comment = fields.Text('Comment')
 
     @classmethod
@@ -93,7 +96,7 @@ class RentalInvoicesElectricity(ModelSQL, ModelView):
 
     @classmethod
     def default_year(cls):
-       return str(datetime.date.today().year)
+        return str(datetime.date.today().year)
 
     def get_result_dividor(self, name=None):
         if self.invoice_total and self.dividor and self.currency:
