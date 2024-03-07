@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form>
+   <label name="code" />
+   <field name="code" />
+   <label name="currency"/>
+   <field name="currency"/>
+   <label name="invoice_total"/>
+   <field name="invoice_total" symbol="currency"/>
+   <label name="year"/>
+   <field name="year"/>
+   <label name="dividor"/>
+   <field name="dividor"/>
+   <label name="month"/>
+   <field name="month" widget="selection" colspan="1"/>
+   <label name="result_dividor" />
+   <field name="result_dividor" symbol="currency" />
+   <separator name="comment" colspan="4"/>
+   <field name="comment" colspan="4"/>
+</form>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<form>
+   <label name="rental_month" />
+   <field name="rental_month" symbol="currency" />
+   <label name="total_rental_month" />
+   <field name="total_rental_month" symbol="currency" />
+   <label name="electricity_invoice" />
+   <field name="electricity_invoice" symbol="currency" />
+   <label name="currency" />
+   <field name="currency" />
+   <label name="month" />
+   <field name="month" widget="selection" />
+   <label name="dividor" />
+   <field name="dividor" />
+   <label name="year" />
+   <field name="year" />
+   <group id="internet_invoices" colspan="2" xalign="0">
+      <label name="invoice_internet_total"/>
+      <field name="invoice_internet_total"/>
+      <field name="result_invoice_internet" symbol="currency"/>
+   </group>
+   <field name="renters" colspan="4"/>
+</form>

@@ -1,0 +1,119 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:rental.invoices.rental,year:"
+msgid "Year"
+msgstr "Año"
+
+msgctxt "field:rental.invoices.rental,month:"
+msgid "Month"
+msgstr "Mes"
+
+msgctxt "field:rental.invoices.rental,rental_month:"
+msgid "Rental per month"
+msgstr "Alquiler este mes"
+
+msgctxt "field:rental.invoices.rental,total_rental_month:"
+msgid "Total rental per month"
+msgstr "Alquiler total este mes"
+
+msgctxt "field:rental.invoices.rental,currency:"
+msgid "Currency"
+msgstr "Moneda"
+
+msgctxt "field:rental.invoices.rental,dividor:"
+msgid "Dividor"
+msgstr "Divisor/Persona"
+
+msgctxt "field:rental.invoices.rental,result_dividor:"
+msgid "Dividor result"
+msgstr "Resultado divisor"
+
+msgctxt "field:rental.invoices.rental,electricity_invoice:"
+msgid "Electricity invoice"
+msgstr "Factura de luz"
+
+msgctxt "field:rental.invoices.rental,comment:"
+msgid "Comment"
+msgstr "Comentarios"
+
+msgctxt "model:ir.ui.menu,name:menu_rental"
+msgid "Rental Invoices"
+msgstr "Alquiler del piso (Panocha)"
+
+msgctxt "model:ir.ui.menu,name:menu_rental_invoices_form"
+msgid "Rental Invoices"
+msgstr "Alquiler del piso"
+
+msgctxt "model:ir.ui.menu,name:menu_invoices_electricity_form"
+msgid "Invoices Electricity"
+msgstr "Facturas de electricidad"
+
+msgctxt "field:rental.invoices.electricity,code:"
+msgid "Invoice code"
+msgstr "Código de factura"
+
+msgctxt "field:rental.invoices.electricity,year:"
+msgid "Year"
+msgstr "Año"
+
+msgctxt "field:rental.invoices.electricity,month:"
+msgid "Month"
+msgstr "Mes"
+
+msgctxt "field:rental.invoices.electricity,invoice_total:"
+msgid "Invoice total"
+msgstr "Total factura"
+
+msgctxt "field:rental.invoices.electricity,currency:"
+msgid "Currency"
+msgstr "Moneda"
+
+msgctxt "field:rental.invoices.electricity,dividor:"
+msgid "Dividor"
+msgstr "Divisor/Persona"
+
+msgctxt "field:rental.invoices.electricity,result_dividor:"
+msgid "Dividor result"
+msgstr "Resultado divisor"
+
+msgctxt "field:rental.invoices.electricity,comment:"
+msgid "Comment"
+msgstr "Comentarios"
+
+msgctxt "field:rental.invoices.rental,invoice_internet_total:"
+msgid "Invoice internet"
+msgstr "Factura de internet"
+
+msgctxt "field:rental.invoices.rental,renters:"
+msgid "Renters"
+msgstr "Arrendatarios"
+
+msgctxt "field:rental.invoices.renter,renter:"
+msgid "Renter"
+msgstr "Inquilino"
+
+msgctxt "field:rental.invoices.renter,quantity_rental:"
+msgid "Quantity rental"
+msgstr "Cantidad al mes"
+
+msgctxt "field:rental.invoices.renter,rental:"
+msgid "Rental Invoice"
+msgstr "Factura de alquiler"
+
+msgctxt "field:rental.invoices.renter,payment_electricity:"
+msgid "Payment electricity"
+msgstr "Pago de luz"
+
+msgctxt "field:rental.invoices.renter,total_pay_renter:"
+msgid "Total amount payable per renter"
+msgstr "Cantidad total a pagar por inquilino"
+
+msgctxt "field:rental.invoices.renter,not_payment_electricity:"
+msgid "Not payment electricity"
+msgstr "No paga luz"
+
+msgctxt "help:rental.invoices.renter,is_payment_electricity:"
+msgid "If this case is mark, the renter not colaborate in the invoice electricity"
+msgstr "Si este caso está marcado, el inquilino no participa en el pago de luz"

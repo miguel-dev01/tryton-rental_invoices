@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree>
+   <field name="rental_month"/>
+   <field name="total_rental_month"/>
+   <field name="month"/>
+   <field name="year"/>
+</tree>

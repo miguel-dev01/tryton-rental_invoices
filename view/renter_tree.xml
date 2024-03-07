@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="renter"/>
+    <field name="quantity_rental"/>
+    <field name="payment_electricity"/>
+    <field name="total_pay_renter"/>
+    <field name="not_payment_electricity"/>
+</tree>

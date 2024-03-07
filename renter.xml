@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <!-- Rental Invoices Renter -->
+        <record model="ir.ui.view" id="rental_renter_view_tree">
+            <field name="model">rental.invoices.renter</field>
+            <field name="type">tree</field>
+            <field name="name">renter_tree</field>
+        </record>
+    </data>
+</tryton>

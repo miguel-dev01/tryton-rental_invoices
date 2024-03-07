@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+      <!-- rental invoices rental -->
+      <record model="ir.ui.view" id="rental_invoices_view_tree">
+         <field name="model">rental.invoices.rental</field>
+         <field name="type">tree</field>
+         <field name="name">rental_invoices_tree</field>
+      </record>
+      <record model="ir.ui.view" id="rental_invoices_view_form">
+         <field name="model">rental.invoices.rental</field>
+         <field name="type">form</field>
+         <field name="name">rental_invoices_form</field>
+      </record>
+
+      <record model="ir.action.act_window" id="act_rental_invoices_form">
+         <field name="name">Rental Invoices</field>
+         <field name="res_model">rental.invoices.rental</field>
+      </record>
+      <record model="ir.action.act_window.view" id="act_rental_invoices_form_view1">
+         <field name="sequence" eval="20"/>
+         <field name="view" ref="rental_invoices_view_form"/>
+         <field name="act_window" ref="act_rental_invoices_form"/>
+      </record>
+      <record model="ir.action.act_window.view" id="act_rental_invoices_form_view2">
+         <field name="sequence" eval="10"/>
+         <field name="view" ref="rental_invoices_view_tree"/>
+         <field name="act_window" ref="act_rental_invoices_form"/>
+      </record>
+
+      <menuitem
+         name="Rental Invoices"
+         sequence="100"
+         id="menu_rental"/>
+      <menuitem
+         parent="menu_rental"
+         action="act_rental_invoices_form"
+         sequence="10"
+         id="menu_rental_invoices_form"/>
+      
+      <!-- rental invoices electricity -->
+      <record model="ir.ui.view" id="invoices_electricity_view_form">
+         <field name="model">rental.invoices.electricity</field>
+         <field name="type">form</field>
+         <field name="name">invoices_electricity_form</field>
+      </record>
+      <record model="ir.ui.view" id="invoices_electricity_view_tree">
+         <field name="model">rental.invoices.electricity</field>
+         <field name="type">tree</field>
+         <field name="name">invoices_electricity_tree</field>
+      </record>
+
+      <record model="ir.action.act_window" id="act_invoices_electricity_form">
+         <field name="name">Invoices Electricity</field>
+         <field name="res_model">rental.invoices.electricity</field>
+      </record>
+      <record model="ir.action.act_window.view" id="act_invoices_electricity_form1">
+         <field name="sequence" eval="20"/>
+         <field name="view" ref="invoices_electricity_view_form"/>
+         <field name="act_window" ref="act_invoices_electricity_form"/>
+      </record>
+      <record model="ir.action.act_window.view" id="act_invoices_electricity_form2">
+         <field name="sequence" eval="10"/>
+         <field name="view" ref="invoices_electricity_view_tree"/>
+         <field name="act_window" ref="act_invoices_electricity_form"/>
+      </record>
+      <record model="ir.ui.view" id="party_rental_view_tree">
+         <field name="model">party.party</field>
+         <field name="inherit" ref="party.party_view_tree"/>
+         <field name="name">party_tree</field>
+      </record>
+
+      <menuitem
+         parent="menu_rental"
+         sequence="20"
+         action="act_invoices_electricity_form"
+         id="menu_invoices_electricity_form"/>
+
+    </data>
+</tryton>

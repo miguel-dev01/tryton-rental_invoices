@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree>
+   <field name="code"/>
+   <field name="year"/>
+   <field name="month"/>
+   <field name="invoice_total"/>
+   <field name="result_dividor"/>
+</tree>
