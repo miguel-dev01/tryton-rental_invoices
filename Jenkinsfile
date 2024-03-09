@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Clonar el repositorio
-                git 'https://github.com/miguel-dev01/tryton-rental_invoices.git'
+                git clone 'https://github.com/miguel-dev01/tryton-rental_invoices.git'
 
                 // Copiar archivos al servidor de producción mediante SSH
                 sh 'scp -r * root@194.62.97.129:/home/modules/'
