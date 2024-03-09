@@ -71,7 +71,7 @@ class RentalInvoicesElectricity(ModelSQL, ModelView):
     __name__ = 'rental.invoices.electricity'
     _rec_name = 'code'
 
-    code = fields.Char('Invoice code', required=True)
+    code = fields.Char('Invoice code')
     year = fields.Date('Year', required=True,
                        context={'date_format': '%Y'})
     month = fields.Many2One('ir.calendar.month', "Month", required=True)
