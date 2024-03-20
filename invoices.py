@@ -31,7 +31,7 @@ class RentalInvoices(ModelSQL, ModelView):
         fields.Numeric('Result invoice internet', readonly=True,
                        digits=(16, Eval('currency_digits', 2)), depends=['currency_digits']),
         'get_result_invoice_internet')
-    comment = fields.Text('Comment')
+    comment = fields.Text('Comments')
     renters = fields.One2Many('rental.invoices.renter',
                               'rental', 'Renters')
 
