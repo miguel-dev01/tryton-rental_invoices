@@ -2,23 +2,26 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval
 from decimal import Decimal
 
+
 class RentalRenter(ModelSQL, ModelView):
-    '''Rental Invoices Renter'''
+    """Rental Invoices Renter"""
     __name__ = 'rental.invoices.renter'
 
     renter = fields.Many2One('party.party', "Renter")
     rental = fields.Many2One('rental.invoices.rental', "Rental Invoice")
     quantity_rental = fields.Numeric("Quantity rental", digits=(16, 2))
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
-        'on_change_with_currency_digits')
+                                      'on_change_with_currency_digits')
     payment_electricity = fields.Function(
         fields.Numeric("Payment electricity", digits=(16, Eval('currency_digits', 2)),
-            depends=['currency_digits']), 'get_payment_electricity')
+                       depends=['currency_digits']), 'get_payment_electricity')
     total_pay_renter = fields.Function(
         fields.Numeric("Total amount payable per renter", digits=(16, Eval('currency_digits', 2)),
-            depends=['currency_digits']), 'get_total_pay_renter')
+                       depends=['currency_digits']), 'get_total_pay_renter')
     not_payment_electricity = fields.Boolean("Not payment electricity",
-        help=("If this case is mark, the renter not colaborate in the invoice electricity"))
+                                             help=(
+                                                 "If this case is mark, the renter not colaborate in the invoice "
+                                                 "electricity"))
 
     @fields.depends('_parent_rental.currency')
     def on_change_with_currency_digits(self, name=None):
@@ -36,11 +39,11 @@ class RentalRenter(ModelSQL, ModelView):
                 return self.rental.currency.round(result_dividor)
         return 0
 
-    def get_total_pay_renter(self, name=None):
+    def get_total_pay_renter(self):
         total_payment = 0
         if self.quantity_rental:
             total_payment += self.quantity_rental
         if self.payment_electricity:
             total_payment += self.payment_electricity
-        return (total_payment.quantize(Decimal(self.rental.currency.rounding))
-            if self.rental and self.rental.currency else None)
+        return (Decimal(total_payment).quantize(Decimal(self.rental.currency.rounding))
+                if self.rental and self.rental.currency else None)
