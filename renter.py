@@ -45,5 +45,4 @@ class RentalRenter(ModelSQL, ModelView):
             total_payment += self.quantity_rental
         if self.payment_electricity:
             total_payment += self.payment_electricity
-        return (Decimal(total_payment).quantize(Decimal(self.rental.currency.rounding))
-                if self.rental and self.rental.currency else None)
+        return total_payment
