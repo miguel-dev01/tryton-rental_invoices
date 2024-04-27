@@ -23,8 +23,7 @@ class RentalInvoices(ModelSQL, ModelView):
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
                                       'on_change_with_currency_digits')
     dividor = fields.Integer('Dividor')
-    electricity_invoice = fields.Many2One('rental.invoices.electricity',
-                                          'Electricity invoice', required=True)
+    electricity_invoice = fields.Many2One('rental.invoices.electricity', 'Electricity invoice')
     invoice_internet_total = fields.Numeric('Invoice internet',
                                             digits=(16, Eval('currency_digits', 2)), depends=['currency_digits'])
     result_invoice_internet = fields.Function(
