@@ -39,7 +39,7 @@ class RentalRenter(ModelSQL, ModelView):
                 return self.rental.currency.round(result_dividor)
         return 0
 
-    def get_total_pay_renter(self):
+    def get_total_pay_renter(self, name=None):
         total_payment = 0
         if self.quantity_rental:
             total_payment += self.quantity_rental
